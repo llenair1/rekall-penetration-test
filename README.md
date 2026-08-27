@@ -31,8 +31,14 @@ Nmap · Nessus · Metasploit · Meterpreter · Kiwi/Mimikatz · John the Ripper 
 - Privilege escalation
 - Security findings documentation
 
+## Representative Findings
+
+The assessment identified representative issues across web applications, application servers, credential security, Windows post-exploitation, and Linux privilege escalation.
+
+[View the findings summary](docs/findings-summary.md)
+
 ## Evidence
 
-This repository contains curated, sanitized evidence from the original assessment. Credentials, course flags, hashes, and unnecessary lab identifiers are excluded from public artifacts.
+Curated, sanitized reconnaissance and vulnerability-assessment evidence has been prepared for publication. Credentials, course flags, hashes, personal information, and unnecessary lab identifiers are excluded from public artifacts.
 
 > All testing was performed in an authorized educational lab environment.
