@@ -21,7 +21,7 @@ The assessment included:
 
 Nmap · Nessus · Metasploit · Meterpreter · Kiwi/Mimikatz · John the Ripper · Kali Linux · SSH
 
-## Key Areas Demonstrated
+## Skills Demonstrated
 
 - Network and service enumeration
 - Web application vulnerability testing
