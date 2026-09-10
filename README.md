@@ -4,22 +4,33 @@ Authorized penetration-testing project completed in a controlled lab environment
 
 ## Project Overview
 
-Performed a multi-stage security assessment of the simulated Rekall Corporation environment across web, Windows, and Linux systems.
+Performed a multi-stage security assessment of the simulated Rekall Corporation environment across web applications, Windows systems, and Linux systems. The objective was to identify exploitable security weaknesses, validate impact through controlled exploitation, and document actionable remediation recommendations.
 
 The assessment included:
 
 - Reconnaissance and service enumeration
-- Vulnerability scanning
+- Vulnerability and service identification
 - Web application security testing
-- Controlled exploitation
-- Credential access
-- Windows post-exploitation
-- Linux privilege escalation
-- Findings and remediation analysis
+- Controlled exploitation and validation
+- Credential access and post-exploitation analysis
+- Windows lateral-movement analysis
+- Linux privilege-escalation testing
+- Findings documentation and remediation analysis
+
+## Methodology
+
+The final assessment report documented four core phases:
+
+1. Reconnaissance
+2. Identification of vulnerabilities and services
+3. Vulnerability exploitation
+4. Reporting
+
+[View scope and methodology](docs/scope-methodology.md)
 
 ## Tools
 
-Nmap · Nessus · Metasploit · Meterpreter · Kiwi/Mimikatz · John the Ripper · Kali Linux · SSH
+Nmap · Nessus · Metasploit · Meterpreter · Kiwi · John the Ripper · Kali Linux · SSH
 
 ## Skills Demonstrated
 
@@ -27,18 +38,20 @@ Nmap · Nessus · Metasploit · Meterpreter · Kiwi/Mimikatz · John the Ripper 
 - Web application vulnerability testing
 - Vulnerability validation
 - Post-exploitation analysis
-- Credential security
+- Credential security analysis
+- Lateral movement
 - Privilege escalation
 - Security findings documentation
+- Remediation development
 
 ## Representative Findings
 
-The assessment identified representative issues across web applications, application servers, credential security, Windows post-exploitation, and Linux privilege escalation.
+The assessment identified issues across web applications, application servers, credential security, Windows systems, and Linux systems. Public documentation includes representative findings only and does not reproduce sensitive lab artifacts.
 
 [View the findings summary](docs/findings-summary.md)
 
 ## Evidence
 
-Curated, sanitized reconnaissance and vulnerability-assessment evidence has been prepared for publication. Credentials, course flags, hashes, personal information, and unnecessary lab identifiers are excluded from public artifacts.
+Curated, sanitized reconnaissance and vulnerability-assessment evidence is included in this repository. Credentials, hashes, course flags, personal information, and unnecessary lab identifiers are excluded from public artifacts.
 
 > All testing was performed in an authorized educational lab environment.
