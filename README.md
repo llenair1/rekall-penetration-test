@@ -1,44 +1,15 @@
-# Rekall Corporation Penetration Test
+# Rekall penetration test
 
-Authorized penetration-testing project completed in a controlled lab environment during the UC Berkeley Cybersecurity Boot Camp.
+In 2024, I completed a penetration-testing project in UC Berkeley's cybersecurity bootcamp. Rekall was a fictional company with a web application and Linux and Windows systems. I wrote a report covering reconnaissance, vulnerability scanning, exploitation, and recommended fixes.
 
-## Project Overview
+This repo shows two parts of that work with evidence I can share publicly.
 
-Performed a multi-stage security assessment of the simulated Rekall Corporation environment across web, Windows, and Linux systems.
+| What I found | Evidence | What it proves |
+|---|---|---|
+| Several live hosts and services in the lab network | [Nmap scan](evidence/reconnaissance/01-nmap-service-enumeration-sanitized.png) | Service enumeration, including HTTP, SSH, FTP, and VNC. |
+| A critical Apache Struts alert | [Nessus result](evidence/reconnaissance/02-nessus-critical-vulnerability-sanitized.png) | The scanner flagged a possible remote code execution issue. I have not shown a successful exploit of this Struts finding. |
+| A shell on a Tomcat host | [Sanitized session capture](evidence/exploitation/tomcat-root-shell-sanitized.png) | The active lab session returned `uid=0(root)`. This was a different target from the Struts scan. |
 
-The assessment included:
+**[Read the two findings and recommended fixes](docs/findings-summary.md).** For the original report, redactions, and what the captures do not establish, see the [evidence notes](docs/evidence-notes.md).
 
-- Reconnaissance and service enumeration
-- Vulnerability scanning
-- Web application security testing
-- Controlled exploitation
-- Credential access
-- Windows post-exploitation
-- Linux privilege escalation
-- Findings and remediation analysis
-
-## Tools
-
-Nmap · Nessus · Metasploit · Meterpreter · Kiwi/Mimikatz · John the Ripper · Kali Linux · SSH
-
-## Skills Demonstrated
-
-- Network and service enumeration
-- Web application vulnerability testing
-- Vulnerability validation
-- Post-exploitation analysis
-- Credential security
-- Privilege escalation
-- Security findings documentation
-
-## Representative Findings
-
-The assessment identified representative issues across web applications, application servers, credential security, Windows post-exploitation, and Linux privilege escalation.
-
-[View the findings summary](docs/findings-summary.md)
-
-## Evidence
-
-Curated, sanitized reconnaissance and vulnerability-assessment evidence has been prepared for publication. Credentials, course flags, hashes, personal information, and unnecessary lab identifiers are excluded from public artifacts.
-
-> All testing was performed in an authorized educational lab environment.
+This was an authorized class lab, not a client engagement. The consulting company and job title in the course report were fictional scenario details. I am responsible for the evidence and conclusions shown here. I kept the original report and screenshots separate from this public repo because they contain credentials and course flags.

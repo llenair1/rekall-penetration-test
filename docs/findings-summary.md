@@ -1,34 +1,21 @@
-# Representative Findings Summary
+# Two findings from the Rekall lab
 
-This document summarizes representative findings from the authorized Rekall Corporation penetration-testing lab. It is not a reproduction of the full course report and excludes credentials, hashes, course flags, and unnecessary lab identifiers.
+The [Nmap scan](../evidence/reconnaissance/01-nmap-service-enumeration-sanitized.png) gave me a starting map of the lab network. It showed live hosts and services, including HTTP, SSH, FTP, and VNC. The findings below came from **different hosts**. They are not steps in one attack chain.
 
-## Representative Findings
+## 1. Apache Struts alert
 
-| Area | Finding | Risk | Recommended Action |
-|---|---|---|---|
-| Web application | Apache Struts remote-code-execution exposure | Critical | Upgrade affected components, remove vulnerable versions, and validate remediation with follow-up scanning. |
-| Web application | Command injection and unsafe input handling | High | Enforce strict server-side input validation, avoid direct shell invocation, and apply least-privilege execution controls. |
-| Web application | Stored cross-site scripting | High | Apply contextual output encoding, input validation, and appropriate browser security controls. |
-| Web application | Local file inclusion / sensitive file access | High | Constrain file access to approved paths, normalize input, and prevent user-controlled path traversal. |
-| Application server | Apache Tomcat remote exploitation path | Critical | Patch or upgrade the affected service, remove unnecessary deployment functionality, and restrict administrative interfaces. |
-| Credential security | Credentials exposed through public source material | High | Remove secrets from source control, rotate exposed credentials, and use managed secret storage and repository scanning. |
-| Windows security | Post-exploitation credential-access opportunities | High | Apply credential protections, least privilege, segmentation, and monitoring for credential-dumping behavior. |
-| Linux security | Privilege-escalation path through excessive permissions | High | Review sudo and file permissions, remove unnecessary elevated access, and enforce least privilege. |
+The [Nessus capture](../evidence/reconnaissance/02-nessus-critical-vulnerability-sanitized.png) shows plugin **97610** reporting a Critical Jakarta Multipart Parser remote code execution issue in certain Apache Struts versions.
 
-## Assessment Approach
+**What I can conclude:** Nessus flagged the host for investigation. The public evidence does not confirm the installed Struts version or show code execution on that host. A scanner alert is a lead, not a confirmed compromise.
 
-The assessment followed a multi-stage workflow:
+**Recommended fix:** Check the deployed version and configuration, update any affected Struts component to a fixed supported release, then scan and test again. Limit exposure while the issue is being checked. The report recommended an update; I have no evidence that a fix or retest was completed.
 
-1. Reconnaissance and service enumeration
-2. Vulnerability scanning and prioritization
-3. Web application security testing
-4. Controlled exploitation and validation
-5. Windows and Linux post-exploitation analysis
-6. Privilege-escalation testing
-7. Findings documentation and remediation analysis
+## 2. Tomcat shell access
 
-## Evidence Handling
+The original report includes one capture of Metasploit's `multi/http/tomcat_jsp_upload_bypass` module opening a command shell. A second capture shows an active `java/linux` session. In the [sanitized session image](../evidence/exploitation/tomcat-root-shell-sanitized.png), `id` returns `uid=0(root) gid=0(root) groups=0(root)`, and `pwd` returns `/usr/local/tomcat`.
 
-Only curated, sanitized evidence is intended for publication in this repository. Original assessment artifacts are preserved separately and are not included here.
+**What I can conclude:** The active session had root privileges on that lab host. The two captures have different session numbers, so I cannot establish that they show one uninterrupted run. They do not prove persistence or access to another host. The report names a CVE, but these captures alone do not verify the exact version or CVE.
 
-> All testing was performed in an authorized educational lab environment.
+**Recommended fix:** Patch the affected Tomcat deployment, restrict or remove unnecessary deployment features, limit administrative access, and run the service with the least privilege it needs. Retest the specific path after changes. The lab report proposed fixes; it does not show their implementation.
+
+The [evidence notes](evidence-notes.md) explain the source report and redactions.
