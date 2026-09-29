@@ -18,4 +18,4 @@ The original report includes one capture of Metasploit's `multi/http/tomcat_jsp_
 
 **Recommended fix:** Patch the affected Tomcat deployment, restrict or remove unnecessary deployment features, limit administrative access, and run the service with the least privilege it needs. Retest the specific path after changes. The lab report proposed fixes; it does not show their implementation.
 
-The [evidence notes](evidence-notes.md) explain the source report, sanitization, and attribution.
+The [evidence notes](evidence-notes.md) explain the source report and redactions.
