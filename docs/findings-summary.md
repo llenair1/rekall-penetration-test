@@ -14,7 +14,7 @@ These are two distinct findings from an authorized, fictional UC Berkeley bootca
 
 ## 2. Tomcat shell session in the lab
 
-**Observation.** Two screenshots embedded in my original report show the Metasploit `multi/http/tomcat_jsp_upload_bypass` module reporting a command shell session, then an active `java/linux` shell. In the interactive session, `id` returns `uid=0(root) gid=0(root) groups=0(root)` and `pwd` returns `/usr/local/tomcat`. See the [sanitized evidence excerpt and source description](evidence-notes.md#tomcat-shell-session).
+**Observation.** Two screenshots embedded in my original report show the Metasploit `multi/http/tomcat_jsp_upload_bypass` module reporting a command shell session, then an active `java/linux` shell. In the interactive session, `id` returns `uid=0(root) gid=0(root) groups=0(root)` and `pwd` returns `/usr/local/tomcat`. See the [sanitized session image](../evidence/exploitation/tomcat-root-shell-sanitized.png) and [source description](evidence-notes.md#tomcat-shell-session).
 
 **Validation and limit.** The session and command output support successful shell access with root privileges in this lab capture. They do not establish persistence, access to other hosts, or the precise software version and CVE. The original report labels this finding with CVE-2017-12617, but the available screenshots alone are insufficient to independently verify that identifier. The shell target is separate from the Nessus Struts finding; the two are **not** a single attack chain.
 
@@ -28,5 +28,5 @@ These are two distinct findings from an authorized, fictional UC Berkeley bootca
 |---|---|---|
 | Host and service enumeration was recorded | [Nmap screenshot](../evidence/reconnaissance/01-nmap-service-enumeration-sanitized.png) | Direct screenshot; not a vulnerability by itself. |
 | Struts RCE exposure was flagged | [Nessus screenshot](../evidence/reconnaissance/02-nessus-critical-vulnerability-sanitized.png) | Scanner finding; manual exploitation on this host is unshown. |
-| A Tomcat exploit module opened a shell and an active session reported root | [Sanitized excerpt from report screenshots](evidence-notes.md#tomcat-shell-session) | Source captures are preserved outside this repository; raw screenshots contain lab identifiers and a course flag. The two screenshots show different session numbers. |
+| A Tomcat exploit module opened a shell and an active session reported root | [Sanitized session image](../evidence/exploitation/tomcat-root-shell-sanitized.png) and [source notes](evidence-notes.md#tomcat-shell-session) | The published image shows the active root session. A separate source capture records a shell opening. The two screenshots show different session numbers and are not claimed as one uninterrupted run. |
 | LeVonta authored the original course report | [Source and attribution notes](evidence-notes.md#source-and-attribution) | Document history and contact fields name her; individual execution of every action is not independently established. |
