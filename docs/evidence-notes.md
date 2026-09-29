@@ -1,10 +1,10 @@
 # Evidence notes
 
-## Original report and attribution
+## Source report
 
-My source document is **“LeVonta Rekall Penetration Test Report,”** created in August 2024 and last updated in September 2024. Its document history lists LeVonta Lenair as the final-draft author. It also contains the screenshots used here. I have kept the full report out of this public repo because it includes passwords, hashes, and course flags.
+My source document is **“LeVonta Rekall Penetration Test Report,”** created in August 2024 and last updated in September 2024. Its document history lists me as the final-draft author, and it contains the screenshots used here. I have kept the full report out of this public repo because it includes passwords, hashes, and course flags.
 
-The report calls me “Lead Penetration Tester” at “Quantum Security LLC.” Those were roles in the class scenario, not a job or a client. The available records do not settle whether every lab step was individual or collaborative.
+The report calls me “Lead Penetration Tester” at “Quantum Security LLC.” Those were roles in the class scenario, not a job or a client.
 
 A separate inventory of 117 recovered bootcamp images helped sort Rekall evidence from unrelated Splunk, Azure WAF, Windows policy, and MegaCorp work. That inventory and the original images remain outside this repo.
 
