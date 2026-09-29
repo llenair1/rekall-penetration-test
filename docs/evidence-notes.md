@@ -1,16 +1,18 @@
-# Evidence provenance and handling
+# Evidence notes
 
-## Source and attribution
+## Original report and attribution
 
-The source is **“LeVonta Rekall Penetration Test Report,”** a Google Doc created in August 2024 and last modified in September 2024. Its document history lists **LeVonta Lenair** as author of a final draft, and it embeds the lab screenshots described below. The report remains outside this public repository because it contains course flags, lab credentials, and hashes. The source document's “Quantum Security LLC” and “Lead Penetration Tester” labels are scenario roles, not employment or a commercial client claim. Its scope table is an unfilled course template, so it does not independently define a formal engagement boundary.
+My source document is **“LeVonta Rekall Penetration Test Report,”** created in August 2024 and last updated in September 2024. Its document history lists LeVonta Lenair as the final-draft author. It also contains the screenshots used here. I have kept the full report out of this public repo because it includes passwords, hashes, and course flags.
 
-A separately recovered collection of 117 bootcamp PNGs was classified in `WORKSPACE_INVENTORY.md` and `BOOTCAMP_RECONSTRUCTION_MAP.md` (preserved outside this repository). Rekall-branded screenshots and the private subnet recur in the Rekall group. Splunk dashboards, Azure WAF, Windows policy, and MegaCorp artifacts were classified as separate work and are not attributed to this assessment. The inventory itself states that solo versus collaborative execution was **not established**.
+The report calls me “Lead Penetration Tester” at “Quantum Security LLC.” Those were roles in the class scenario, not a job or a client. The available records do not settle whether every lab step was individual or collaborative.
 
-The three published reconnaissance images were added to this repository on August 27, 2026. The original report and recovered screenshots have not been modified for this case study. The [public Tomcat image](../evidence/exploitation/tomcat-root-shell-sanitized.png) is a cropped, redacted visual derivative of an embedded report capture, not a byte-for-byte original. Its visible commands and output were checked against the source; the connection details and all content after the `pwd` output were removed. Sanitized text transcriptions follow for context.
+A separate inventory of 117 recovered bootcamp images helped sort Rekall evidence from unrelated Splunk, Azure WAF, Windows policy, and MegaCorp work. That inventory and the original images remain outside this repo.
 
-## Tomcat shell session
+## Tomcat captures
 
-**Source capture A:** An embedded screenshot in the original report shows the Metasploit exploit run. Placeholders replace the lab target and connection details. The visible output is:
+The [published session image](../evidence/exploitation/tomcat-root-shell-sanitized.png) is a cropped, redacted **visual derivative** of a screenshot embedded in my report. I checked its visible commands and output against the source. It is not a byte-for-byte copy. The connection details and everything after the `pwd` result were removed.
+
+The report also contains an earlier exploit capture. Here are the relevant lines, transcribed with lab identifiers replaced by brackets:
 
 ```text
 msf6 exploit(multi/http/tomcat_jsp_upload_bypass) > set RHOST [LAB_TARGET]
@@ -20,11 +22,9 @@ msf6 exploit(multi/http/tomcat_jsp_upload_bypass) > run
 [*] Command shell session 1 opened ([LAB_CONNECTION])
 ```
 
-**Source capture B:** A separate embedded screenshot shows the active-session view and shell commands. The [public visual derivative](../evidence/exploitation/tomcat-root-shell-sanitized.png) shows this portion. The flag value and lab connection details are omitted:
+The published image shows a later **session 2**:
 
 ```text
-msf6 exploit(multi/http/tomcat_jsp_upload_bypass) > sessions
-Active sessions: shell java/linux
 msf6 exploit(multi/http/tomcat_jsp_upload_bypass) > sessions -i 2
 id
 uid=0(root) gid=0(root) groups=0(root)
@@ -32,10 +32,6 @@ pwd
 /usr/local/tomcat
 ```
 
-These are **curated transcriptions, not raw terminal logs**. Session 1 opens in capture A; session 2 is inspected in capture B. The artifacts do not prove the two are the same session or one uninterrupted run. The active-session view directly supports the root-shell observation; the earlier capture supports that the named module opened a command shell. The source also displays a course flag, omitted here.
+The two session numbers differ. I use the first capture as evidence that the module opened a shell and the second as evidence of an active root session. I do not treat them as proof of one continuous run.
 
-## Publication limits
-
-- The [Nmap](../evidence/reconnaissance/01-nmap-service-enumeration-sanitized.png) and [Nessus](../evidence/reconnaissance/02-nessus-critical-vulnerability-sanitized.png) images are existing sanitized portfolio copies. Private lab addresses remain visible in the Nmap copy; they are RFC 1918 lab context, not live public targets.
-- The original report contains additional claims whose screenshots, labels, or severity need individual review. They are not promoted into the two featured findings.
-- No manual Struts exploitation, fixed-version verification, remediation deployment, retest, or professional client engagement is claimed.
+The [Nmap](../evidence/reconnaissance/01-nmap-service-enumeration-sanitized.png) and [Nessus](../evidence/reconnaissance/02-nessus-critical-vulnerability-sanitized.png) images were published earlier. The Nmap image still shows private lab addresses. No public image here shows a Struts exploit, a completed fix, or a retest.
