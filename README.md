@@ -12,4 +12,4 @@ This repo shows two parts of that work with evidence I can share publicly.
 
 **[Read the two findings and recommended fixes](docs/findings-summary.md).** For the original report, redactions, and what the captures do not establish, see the [evidence notes](docs/evidence-notes.md).
 
-This was an authorized class lab, not a client engagement. The consulting company and job title in the course report were fictional scenario details. The report names me as its author; the available records do not establish whether every lab step was completed individually. I kept the original report and screenshots separate from this public repo because they contain credentials and course flags.
+This was an authorized class lab, not a client engagement. The consulting company and job title in the course report were fictional scenario details. I am responsible for the evidence and conclusions shown here. I kept the original report and screenshots separate from this public repo because they contain credentials and course flags.
