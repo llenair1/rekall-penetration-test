@@ -6,7 +6,7 @@ The source is **“LeVonta Rekall Penetration Test Report,”** a Google Doc cre
 
 A separately recovered collection of 117 bootcamp PNGs was classified in `WORKSPACE_INVENTORY.md` and `BOOTCAMP_RECONSTRUCTION_MAP.md` (preserved outside this repository). Rekall-branded screenshots and the private subnet recur in the Rekall group. Splunk dashboards, Azure WAF, Windows policy, and MegaCorp artifacts were classified as separate work and are not attributed to this assessment. The inventory itself states that solo versus collaborative execution was **not established**.
 
-The three published reconnaissance images were added to this repository on August 27, 2026. The original report and recovered screenshots have not been modified for this case study. Sanitized text transcriptions follow so the Tomcat evidence can be reviewed without publishing raw course material.
+The three published reconnaissance images were added to this repository on August 27, 2026. The original report and recovered screenshots have not been modified for this case study. The [public Tomcat image](../evidence/exploitation/tomcat-root-shell-sanitized.png) is a cropped, redacted visual derivative of an embedded report capture, not a byte-for-byte original. Its visible commands and output were checked against the source; the connection details and all content after the `pwd` output were removed. Sanitized text transcriptions follow for context.
 
 ## Tomcat shell session
 
@@ -20,7 +20,7 @@ msf6 exploit(multi/http/tomcat_jsp_upload_bypass) > run
 [*] Command shell session 1 opened ([LAB_CONNECTION])
 ```
 
-**Source capture B:** A separate embedded screenshot shows the active-session view and shell commands. The flag value and lab connection details are omitted:
+**Source capture B:** A separate embedded screenshot shows the active-session view and shell commands. The [public visual derivative](../evidence/exploitation/tomcat-root-shell-sanitized.png) shows this portion. The flag value and lab connection details are omitted:
 
 ```text
 msf6 exploit(multi/http/tomcat_jsp_upload_bypass) > sessions
