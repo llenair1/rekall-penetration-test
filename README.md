@@ -10,7 +10,7 @@ I documented reconnaissance, vulnerability assessment, exploitation, and remedia
 |---|---|---|
 | Service enumeration | [Sanitized Nmap capture](evidence/reconnaissance/01-nmap-service-enumeration-sanitized.png) | A service/version scan of a private lab subnet identified live hosts and services, including HTTP, SSH, FTP, and VNC. |
 | Vulnerability review | [Sanitized Nessus capture](evidence/reconnaissance/02-nessus-critical-vulnerability-sanitized.png) | Nessus plugin 97610 reported a critical Apache Struts Jakarta Multipart Parser remote-code-execution exposure. This is a scan finding, not proof that code execution occurred on that host. |
-| Exploit validation | [Sanitized source excerpt](docs/evidence-notes.md#tomcat-shell-session) | Screenshots embedded in my original report show a Metasploit Tomcat JSP upload-bypass module opening a shell session, followed by an active session where `id` returned `uid=0(root)`. This is a separate target and path from the Struts scan finding. |
+| Exploit validation | [Sanitized Tomcat session image](evidence/exploitation/tomcat-root-shell-sanitized.png) and [source notes](docs/evidence-notes.md#tomcat-shell-session) | Screenshots embedded in my original report show a Metasploit Tomcat JSP upload-bypass module opening a shell session, followed by an active session where `id` returned `uid=0(root)`. This is a separate target and path from the Struts scan finding. |
 
 ## My contribution and the lab boundary
 
